@@ -1,14 +1,15 @@
 import React from "react";
+import image01 from "../img/spiderman01.jpg";
 
-const PersonInfo = () => {
+const MainContent = () => {
   return (
     <div>
-      <h1 className="red text-center underline">Peter Parker</h1>
       <p>
         Spider-Man is a fictional superhero created by writer-editor Stan Lee
         and writer-artist Steve Ditko. He first appeared in the anthology comic
         book Amazing Fantasy #15 in the Silver Age of Comic Books
       </p>
+      <img src={image01} alt="Spider-Man"></img>
       <p>
         For more information please visit:{" "}
         <a href="https://en.wikipedia.org/wiki/Spider-Man">Wikipedia Link</a>
@@ -24,4 +25,4 @@ const PersonInfo = () => {
   );
 };
 
-export default PersonInfo;
+export default MainContent;
