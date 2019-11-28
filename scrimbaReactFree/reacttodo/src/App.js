@@ -3,7 +3,7 @@ import React from "react";
 const App = () => {
   return (
     <div>
-      <h1>To Do List</h1>
+      <h1>React To-Do List</h1>
       <div>
         <input type="checkbox" name="task01" id="task01"></input>
         <label for="task01">Buy Road Bike</label>
