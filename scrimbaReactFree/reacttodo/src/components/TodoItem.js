@@ -2,9 +2,9 @@ import React from "react";
 
 const TodoItem = () => {
   return (
-    <div>
+    <div className="todoItem">
       <input type="checkbox" name="task01" id="task01"></input>
-      <label className="itemLabel">Loading data...</label>
+      <label>Placeholder test here</label>
       {/* <label for="task01">Loading data...</label> */}
     </div>
   );

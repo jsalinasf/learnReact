@@ -8,10 +8,12 @@ const App = () => {
     <div>
       <BackgroundImage />
       <AppHeader />
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
+      <div className="todoList">
+        <TodoItem />
+        <TodoItem />
+        <TodoItem />
+        <TodoItem />
+      </div>
     </div>
   );
 };
