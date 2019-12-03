@@ -10,6 +10,16 @@ body {
   margin: 0;
 }
 
+.cardFormat {
+  width: 300px;
+  height: auto;
+}
+
+.cardFormatImg {
+  width: 200px;
+  height: 200px;
+}
+
 .headerMainText {
   /* background-image: radial-gradient(#b11313, #447bbe); */
   background-image: radial-gradient(#df1f2d, #2b3784);
