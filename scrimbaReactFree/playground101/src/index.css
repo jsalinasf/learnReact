@@ -11,13 +11,17 @@ body {
 }
 
 .cardFormat {
-  width: 300px;
+  width: 200px;
   height: auto;
+  border: 1px dashed #cecece;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  display: inline-block;
 }
 
 .cardFormatImg {
   width: 200px;
-  height: 200px;
+  height: auto;
 }
 
 .headerMainText {

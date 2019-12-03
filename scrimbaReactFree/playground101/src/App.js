@@ -10,19 +10,9 @@ const App = () => {
     <div>
       <Header />
       <MainContent />
+      <ContactCard contact={{name: "Mr. Whiskerson", imgUrl: "http://placekitten.com/300/200", phone: "(212) 555-1234", email: "mr.whiskaz@catnap.meow"}}/>
+      <ContactCard contact={{name: "Fluffykins", imgUrl: "http://images6.fanpop.com/image/photos/40800000/socializing-kitten-300x200-cute-kittens-40835560-300-200.jpg", phone: "(809) 569-9986", email: "catcat@gmail.com"}} />
       <InlineStyle />
-      <ContactCard
-        url={"http://www.randomkittengenerator.com/"}
-        name={"Mr Cat 01"}
-        phone={"438 569-6965"}
-        email={"cat1@hotmail.com"}
-      />
-      <ContactCard
-        url={"http://www.randomkittengenerator.com/"}
-        name={"Mr Cat 01"}
-        phone={"438 569-6965"}
-        email={"cat1@hotmail.com"}
-      />
       <Footer />
     </div>
   );
