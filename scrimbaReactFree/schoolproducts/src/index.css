@@ -1,0 +1,51 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.appHeader {
+  font-size: 3rem;
+  color: forestgreen;
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 30px;
+}
+
+.productsList {
+  display: flex;
+  flex-flow: row wrap;
+
+  gap: 20px 20px;
+  /* align-content: space-around; */
+}
+
+.productCard {
+  padding: 20px;
+  outline: 2px solid blue;
+  flex: 1;
+  flex-basis: 33%;
+}
+
+.productName {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.productDescription {
+  text-align: justify;
+}
+
+.productPrice {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: crimson;
+}
