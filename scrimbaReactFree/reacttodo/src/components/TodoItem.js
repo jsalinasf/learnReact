@@ -1,11 +1,15 @@
 import React from "react";
 
-const TodoItem = () => {
+const TodoItem = ({ item }) => {
   return (
     <div className="todoItem">
-      <input type="checkbox" name="task01" id="task01"></input>
-      <label>Placeholder test here</label>
-      {/* <label for="task01">Loading data...</label> */}
+      <input
+        type="checkbox"
+        name={item.id}
+        id={item.id}
+        defaultChecked={item.completed}
+      ></input>
+      <label htmlFor={item.id}>{item.text}</label>
     </div>
   );
 };
