@@ -48,6 +48,12 @@ const products = [
     name: "Sticker Set",
     price: 14.99,
     description: "To prove to other devs you know a lot."
+  },
+  {
+    id: "9",
+    name: "Windows 98 installer",
+    price: 14.99,
+    description: "14 1.44MB installation diskettes"
   }
 ];
 

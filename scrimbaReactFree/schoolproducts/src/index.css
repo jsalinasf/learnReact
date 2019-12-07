@@ -30,7 +30,7 @@
 
 .productCard {
   padding: 20px;
-  outline: 2px solid blue;
+  outline: 2px solid steelblue;
   flex: 1;
   flex-basis: 33%;
 }

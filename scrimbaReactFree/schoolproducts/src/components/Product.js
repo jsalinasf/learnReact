@@ -1,6 +1,6 @@
 import React from "react";
 
-const Product = ({ product }) => {
+const Product = ({ product, getProductInfo }) => {
   return (
     <div className="productCard">
       <h2 className="productName">{product.name}</h2>
@@ -11,7 +11,9 @@ const Product = ({ product }) => {
           currency: "USD"
         })}
       </p>
-      <button className="productButton">Get Info</button>
+      <button className="productButton" onClick={getProductInfo}>
+        Get Info
+      </button>
     </div>
   );
 };
