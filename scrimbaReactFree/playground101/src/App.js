@@ -23,6 +23,9 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+        <MainContent />
+        <ContactCard contact={{name: "Mr. Whiskerson", imgUrl: "http://placekitten.com/300/200", phone: "(212) 555-1234", email: "mr.whiskaz@catnap.meow"}} />
+        <Footer />
       </div>
     );
   }
