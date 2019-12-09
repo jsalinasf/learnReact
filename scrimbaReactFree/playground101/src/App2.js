@@ -7,7 +7,7 @@ Challenge:
 */
 
 import React from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 
 // #1
 // function App() {
@@ -23,33 +23,32 @@ class App2 extends React.component {
   render() {
     return (
       <div>
-        <Header />
-        <Greeting />
+        <p>Welcome</p>
+        {/* <Header2 /> */}
+        {/* <Greeting /> */}
       </div>
     );
   }
 }
 
-// #2
-function Header(props) {
-  return (
-    <header>
-      <p>Welcome, {props.username}!</p>
-    </header>
-  );
-}
+// // #2
+// function Header(props) {
+//   return (
+//     <header>
+//       <p>Welcome, {props.username}!</p>
+//     </header>
+//   );
+// }
 
-class Header extends React.Component {
-  render() {
-    return (
-      <div>
-        <header>
-          <p>Welcome!</p>
-        </header>
-      </div>
-    );
-  }
-}
+// class Header2 extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <p>Welcome!</p>
+//       </div>
+//     );
+//   }
+// }
 
 // #3
 // function Greeting() {
