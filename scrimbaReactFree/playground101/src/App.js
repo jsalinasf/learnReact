@@ -14,20 +14,12 @@ class App extends Component {
     };
   }
   render() {
-    const isLoggedIn = this.state.isLoggedIn;
-    if (isLoggedIn) {
-      return (
-        <div>
-          <h1>You are currently logged in</h1>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <h1>You are currently logged out</h1>
-        </div>
-      );
-    }
+    let loggedUser = this.state.isLoggedIn ? "in" : "out";
+    return (
+      <div>
+        <h1>You are currently logged {loggedUser}</h1>
+      </div>
+    );
   }
 }
 
