@@ -7,16 +7,24 @@ import todosData from "./utils/todosData";
 class App extends Component {
   constructor() {
     super();
+    this.state = {
+      todoArr: this.loadData()
+    };
   }
-  render() {
-    const todoArr = todosData.map(item => (
+
+  loadData = function() {
+    this.todoArr = todosData.map(item => (
       <TodoItem key={item.id} item={item} />
     ));
+    return this.todoArr;
+  };
+
+  render() {
     return (
       <div>
         <BackgroundImage />
         <AppHeader />
-        <div className="todoList">{todoArr}</div>
+        <div className="todoList">{this.state.todoArr}</div>
       </div>
     );
   }
