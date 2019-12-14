@@ -9,27 +9,17 @@ class App extends Component {
     super();
   }
   render() {
+    const todoArr = todosData.map(item => (
+      <TodoItem key={item.id} item={item} />
+    ));
     return (
       <div>
         <BackgroundImage />
         <AppHeader />
+        <div className="todoList">{todoArr}</div>
       </div>
     );
   }
 }
-
-// const App = () => {
-//   const todosArr = todosData.map(item => (
-//     <TodoItem key={item.id} item={item} />
-//   ));
-
-//   return (
-//     <div>
-//       <BackgroundImage />
-//       <AppHeader />
-//       <div className="todoList">{todosArr}</div>
-//     </div>
-//   );
-// };
 
 export default App;
