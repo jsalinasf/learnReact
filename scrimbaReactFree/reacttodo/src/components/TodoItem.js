@@ -4,6 +4,7 @@ const TodoItem = ({ item }) => {
   return (
     <div className="todoItem">
       <input
+        onChange={() => console.log("Item changed!")}
         type="checkbox"
         name={item.id}
         id={item.id}
