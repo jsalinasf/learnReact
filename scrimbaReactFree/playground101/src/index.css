@@ -10,6 +10,14 @@ body {
   margin: 0;
 }
 
+.justCenter {
+  text-align: center;
+  width: 90%;
+  height: auto;
+  margin: 10px auto;
+  border: 1px dashed #cecece;
+}
+
 .cardFormat {
   width: 200px;
   height: auto;
