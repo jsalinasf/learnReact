@@ -14,13 +14,12 @@ class App extends Component {
   }
 
   handleChange(id) {
-    //this.setState({todosArr[0].completed: false})
-    console.log("hey");
+    console.log(id);
   }
 
   render() {
-    const todoItems = this.todosArr.map(item => (
-      <TodoItem key={item.id} item={item} onChange={this.handleChange()} />
+    const todoItems = this.state.todosArr.map(item => (
+      <TodoItem key={item.id} item={item} onChange={this.handleChange} />
     ));
 
     return (
