@@ -8,19 +8,32 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      todosArr: todosData
+      todos: todosData
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(id) {
-    console.log("Changed", id);
-    // this.setState(prevState => {
-    // })
+    this.setState(prevState => {
+      const updatedTodos = prevState.todos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        }
+        return todo;
+      });
+      // Check how prevStateArray is different from updatedTodos
+      // Hence we are not modifying the original state
+      // console.log(prevState.todos);
+      // console.log(updatedTodos);
+      return { todos: updatedTodos };
+    });
   }
 
   render() {
-    const todoItems = this.state.todosArr.map(item => (
+    const todoItems = this.state.todos.map(item => (
       <TodoItem key={item.id} item={item} handleChange={this.handleChange} />
     ));
 
