@@ -1,16 +1,16 @@
 import React from "react";
 
-const TodoItem = ({ item }) => {
+const TodoItem = props => {
   return (
     <div className="todoItem">
       <input
-        onChange={() => console.log("Item changed!")}
+        onChange={props.handleChange}
         type="checkbox"
-        name={item.id}
-        id={item.id}
-        defaultChecked={item.completed}
+        name={props.item.id}
+        id={props.item.id}
+        defaultChecked={props.item.completed}
       ></input>
-      <label htmlFor={item.id}>{item.text}</label>
+      <label htmlFor={props.item.id}>{props.item.text}</label>
     </div>
   );
 };
