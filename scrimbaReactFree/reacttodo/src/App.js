@@ -8,23 +8,19 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      todoArr: this.loadData()
+      todosArr: todosData
     };
   }
 
   loadData = function() {
-    this.todoArr = todosData.map(item => (
-      <TodoItem key={item.id} item={item} />
-    ));
-    return this.todoArr;
-  };
+    const todoItems = this.todoArr.map()
 
   render() {
     return (
       <div>
         <BackgroundImage />
         <AppHeader />
-        <div className="todoList">{this.state.todoArr}</div>
+        <div className="todoList">{todoItems}</div>
       </div>
     );
   }
