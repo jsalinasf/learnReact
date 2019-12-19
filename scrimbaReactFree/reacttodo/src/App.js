@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   handleChange(id) {
-    console.log(id);
+    console.log("test", id);
   }
 
   render() {

@@ -5,7 +5,7 @@ const TodoItem = props => {
   return (
     <div className="todoItem">
       <input
-        onChange={props.handleChange}
+        onChange={props.onChange}
         type="checkbox"
         name={props.item.id}
         id={props.item.id}
