@@ -10,12 +10,16 @@ class App extends Component {
     this.state = {
       todosArr: todosData
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  loadData = function() {
-    const todoItems = this.todoArr.map()
+  handleChange(id) {}
 
   render() {
+    const todoItems = this.state.todosArr.map(item => (
+      <TodoItem key={item.id} item={item} />
+    ));
+
     return (
       <div>
         <BackgroundImage />
