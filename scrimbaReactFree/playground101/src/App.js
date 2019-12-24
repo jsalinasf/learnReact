@@ -12,6 +12,12 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 1500);
+  }
+
   render() {
     return (
       <div className="justCenter">
