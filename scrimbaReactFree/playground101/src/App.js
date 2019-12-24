@@ -7,7 +7,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      word: "One",
       isLoading: true
     };
   }
