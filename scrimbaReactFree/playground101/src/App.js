@@ -4,13 +4,17 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      isUserLoggedIn: true
+      isUserLoggedIn: false
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    alert("Test");
+    this.setState(prevState => {
+      return {
+        isUserLoggedIn: !prevState.isUserLoggedIn
+      };
+    });
   }
 
   render() {
