@@ -21,9 +21,6 @@ import React, { Component } from "react";
 class TodoItem extends Component {
   constructor(props) {
     super();
-    this.state = {
-      props: props
-    };
   }
 
   render() {
@@ -31,16 +28,12 @@ class TodoItem extends Component {
       <div className="todoItem">
         <input
           type="checkbox"
-          name={this.state.props.item.id}
-          id={this.state.props.item.id}
-          checked={this.state.props.item.completed}
-          onChange={() =>
-            this.state.props.handleChange(this.state.props.item.id)
-          }
+          name={this.props.item.id}
+          id={this.props.item.id}
+          checked={this.props.item.completed}
+          onChange={() => this.props.handleChange(this.props.item.id)}
         ></input>
-        <label htmlFor={this.state.props.item.id}>
-          {this.state.props.item.text}
-        </label>
+        <label htmlFor={this.props.item.id}>{this.props.item.text}</label>
       </div>
     );
   }
