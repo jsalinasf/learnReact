@@ -8,6 +8,7 @@ class App extends Component {
     super();
     this.state = {
       isLoading: true,
+      // Change andOperator value to see how Conditional Rendering works!
       andOperator: false
     };
   }
