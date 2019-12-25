@@ -21,9 +21,23 @@ import React, { Component } from "react";
 class TodoItem extends Component {
   constructor(props) {
     super();
+    this.state = {
+      pendingStyle: {
+        textDecoration: "none",
+        color: "#333333"
+      },
+      completedStyle: {
+        textDecoration: "line-through",
+        color: "#cecece"
+      }
+    };
   }
 
   render() {
+    const itemLabelStyle = this.props.item.completed
+      ? this.state.completedStyle
+      : this.state.pendingStyle;
+
     return (
       <div className="todoItem">
         <input
@@ -33,7 +47,9 @@ class TodoItem extends Component {
           checked={this.props.item.completed}
           onChange={() => this.props.handleChange(this.props.item.id)}
         ></input>
-        <label htmlFor={this.props.item.id}>{this.props.item.text}</label>
+        <label style={itemLabelStyle} htmlFor={this.props.item.id}>
+          {this.props.item.text}
+        </label>
       </div>
     );
   }
