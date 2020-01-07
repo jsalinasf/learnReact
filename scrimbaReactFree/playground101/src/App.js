@@ -1,33 +1,43 @@
 import React, { Component } from "react";
 
+// FETCH - To get data from API
+// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch
+
+//Star Wars API
+// https://swapi.co/
+
+// JavaScript Promises Overview
+// https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      isUserLoggedIn: false
+      character: {}
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.saveCharacter = this.saveCharacter.bind(this);
   }
 
-  handleClick() {
-    this.setState(prevState => {
-      return {
-        isUserLoggedIn: !prevState.isUserLoggedIn
-      };
+  saveCharacter(data) {
+    this.setState({
+      character: data
     });
+  }
+
+  // Lifecycle application
+  componentDidMount() {
+    fetch("https://swapi.co/api/people/1")
+      .then(response => response.json())
+      .then(data => {
+        this.saveCharacter(data);
+      });
   }
 
   render() {
     return (
       <div>
-        <h1>Conditional Rendering and State React Practice</h1>
-        <div>
-          User's state: {this.state.isUserLoggedIn ? "logged in" : "logged out"}
-        </div>
-        <br />
-        <button onClick={this.handleClick}>
-          {this.state.isUserLoggedIn ? "Log Out" : "Log In"}
-        </button>
+        <h1>Application LifeCycle</h1>
+        <div>{this.state.character.name}</div>
       </div>
     );
   }
