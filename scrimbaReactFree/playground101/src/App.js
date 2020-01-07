@@ -13,31 +13,35 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      loading: false,
       character: {}
     };
-    this.saveCharacter = this.saveCharacter.bind(this);
-  }
-
-  saveCharacter(data) {
-    this.setState({
-      character: data
-    });
   }
 
   // Lifecycle application
   componentDidMount() {
+    this.setState({
+      loading: true
+    });
     fetch("https://swapi.co/api/people/1")
       .then(response => response.json())
       .then(data => {
-        this.saveCharacter(data);
+        this.setState({
+          character: data,
+          loading: false
+        });
       });
   }
 
   render() {
+    console.log(this.state.character);
+    const textToDisplay = this.state.loading
+      ? "Loading..."
+      : this.state.character.name;
     return (
       <div>
-        <h1>Application LifeCycle</h1>
-        <div>{this.state.character.name}</div>
+        <h1>Fetching data from API</h1>
+        <p>{textToDisplay}</p>
       </div>
     );
   }
