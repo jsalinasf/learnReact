@@ -5,7 +5,8 @@ class App extends Component {
     super();
     this.state = {
       firstName: "",
-      lastName: ""
+      lastName: "",
+      userBio: "Update me!"
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -21,7 +22,7 @@ class App extends Component {
     return (
       <div>
         <h1>
-          {this.state.firstName} {this.state.lastName}
+          {this.state.firstName} {this.state.lastName} {this.state.userBio}
         </h1>
         <form>
           <label className="label" htmlFor="firstName">
@@ -33,7 +34,7 @@ class App extends Component {
             id="firstName"
             value={this.state.firstName}
             onChange={this.handleChange}
-          ></input>
+          />
           <br />
           <label className="label" htmlFor="lastName">
             Last Name:
@@ -44,7 +45,15 @@ class App extends Component {
             id="lastName"
             value={this.state.lastName}
             onChange={this.handleChange}
-          ></input>
+          />
+          <br />
+          <label className="label">User biography: </label>
+          <textarea
+            name="userBio"
+            id="userBio"
+            value={this.state.userBio}
+            onChange={this.handleChange}
+          />
         </form>
       </div>
     );
