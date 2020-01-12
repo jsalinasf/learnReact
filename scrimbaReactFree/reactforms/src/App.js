@@ -24,16 +24,22 @@ class App extends Component {
           {this.state.firstName} {this.state.lastName}
         </h1>
         <form>
-          <label for="firstName">First Name: </label>
+          <label className="label" htmlFor="firstName">
+            First Name:
+          </label>
           <input
+            type="text"
             name="firstName"
             id="firstName"
             value={this.state.firstName}
             onChange={this.handleChange}
           ></input>
           <br />
-          <label for="lastName">Last Name: </label>
+          <label className="label" htmlFor="lastName">
+            Last Name:
+          </label>
           <input
+            type="text"
             name="lastName"
             id="lastName"
             value={this.state.lastName}
