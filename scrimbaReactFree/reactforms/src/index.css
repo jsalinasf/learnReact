@@ -1,7 +1,7 @@
 *,
 *::after,
 *::before {
-  margin: 0;
+  margin: 5px 0 0 5px;
   padding: 0;
   box-sizing: border-box;
   background-color: lightsteelblue;
@@ -15,6 +15,4 @@ h1 {
 .label {
   display: inline-block;
   width: 100px;
-  margin-top: 15px;
-  margin-left: 15px;
 }

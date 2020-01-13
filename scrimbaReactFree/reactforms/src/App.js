@@ -1,3 +1,6 @@
+// Review FORMIK
+// It is a library for managing forms in react
+
 import React, { Component } from "react";
 
 class App extends Component {
@@ -6,24 +9,30 @@ class App extends Component {
     this.state = {
       firstName: "",
       lastName: "",
-      userBio: "Update me!"
+      userBio: "",
+      isSuscribed: false,
+      userGender: "",
+      favoriteColor: ""
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
+    const { name, value, type, checked } = event.target;
+    type === "checkbox"
+      ? this.setState({ isSuscribed: checked })
+      : this.setState({ [name]: value });
   }
 
   render() {
     return (
       <div>
         <h1>
-          {this.state.firstName} {this.state.lastName} {this.state.userBio}
+          Welcome {this.state.firstName} {this.state.lastName}!
         </h1>
+        <p>Your bio says: {this.state.userBio}</p>
+        <p>Your gender is {this.state.userGender}</p>
+        <p>Your favorite color is: </p>
         <form>
           <label className="label" htmlFor="firstName">
             First Name:
@@ -47,11 +56,48 @@ class App extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <label className="label">User biography: </label>
+          <label className="label" htmlFor="isSuscribed">
+            Receive Newsletter:{" "}
+          </label>
+          <input
+            type="checkbox"
+            name="isSuscribed"
+            id="isSuscribed"
+            checked={this.state.isSuscribed}
+            onChange={this.handleChange}
+          />
+          <br />
+          <label className="label" htmlFor="userBio">
+            User biography:{" "}
+          </label>
           <textarea
             name="userBio"
             id="userBio"
             value={this.state.userBio}
+            onChange={this.handleChange}
+          />
+          <br />
+          <label className="label" htmlFor="userGenderMale">
+            Male:
+          </label>
+          <input
+            id="userGenderMale"
+            type="radio"
+            name="userGender"
+            value="male"
+            checked={this.state.userGender === "male"}
+            onChange={this.handleChange}
+          />
+          <br />
+          <label className="label" htmlFor="userGenderFemale">
+            Female
+          </label>
+          <input
+            id="userGenderFemale"
+            type="radio"
+            name="userGender"
+            value="female"
+            checked={this.state.userGender === "female"}
             onChange={this.handleChange}
           />
         </form>
