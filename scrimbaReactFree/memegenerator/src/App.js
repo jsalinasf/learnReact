@@ -1,13 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
+import Header from "./components/Header";
+import MemeGenerator from "./components/MemeGenerator";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-  render() {
-    return <div>Test</div>;
-  }
+function App() {
+  return (
+    <div>
+      <Header />
+      <MemeGenerator />
+    </div>
+  );
 }
 
 export default App;
