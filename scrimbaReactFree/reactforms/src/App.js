@@ -30,9 +30,13 @@ class App extends Component {
         <h1>
           Welcome {this.state.firstName} {this.state.lastName}!
         </h1>
+        <p>
+          Are you suscribed to our newsletter:{" "}
+          {this.state.isSuscribed ? "Yes" : "No"}
+        </p>
         <p>Your bio says: {this.state.userBio}</p>
-        <p>Your gender is {this.state.userGender}</p>
-        <p>Your favorite color is: </p>
+        <p>Your gender is: {this.state.userGender}</p>
+        <p>Your favorite color is: {this.state.favoriteColor}</p>
         <form>
           <label className="label" htmlFor="firstName">
             First Name:
