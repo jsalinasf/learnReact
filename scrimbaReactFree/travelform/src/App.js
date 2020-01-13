@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import FormContainer from "./components/FormContainer";
 
 class App extends Component {
   render() {
-    return <div>Test</div>;
+    return (
+      <div>
+        <FormContainer />
+      </div>
+    );
   }
 }
 

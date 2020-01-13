@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FormComponent from "./FormComponent";
 
 class FormContainer extends Component {
   constructor() {
@@ -46,7 +47,13 @@ class FormContainer extends Component {
     return (
       <div>
         <h1>Travel Form</h1>
-        <div>Test</div>
+        <div>
+          <FormComponent
+            handleChange={this.handleChange}
+            handleClick={this.handleClick}
+            {...this.state}
+          />
+        </div>
       </div>
     );
   }
