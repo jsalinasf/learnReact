@@ -23,7 +23,10 @@ class App extends Component {
   }
 
   handleClick(event) {
-    alert("uploaded");
+    event.preventDefault();
+    alert(
+      `${document.getElementById("firstName").value} your info has been saved`
+    );
   }
 
   render() {
