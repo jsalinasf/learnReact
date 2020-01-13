@@ -104,6 +104,22 @@ class App extends Component {
             checked={this.state.userGender === "female"}
             onChange={this.handleChange}
           />
+          <br />
+          <label className="label" htmlFor="favoriteColor">
+            Favorite Color:{" "}
+          </label>
+          <select
+            id="favoriteColor"
+            name="favoriteColor"
+            value={this.state.favoriteColor}
+            onChange={this.handleChange}
+          >
+            <option value="blue">Blue</option>
+            <option value="black">Black</option>
+            <option value="green">Green</option>
+            <option value="orange">Orange</option>
+            <option value="white">White</option>
+          </select>
         </form>
       </div>
     );
