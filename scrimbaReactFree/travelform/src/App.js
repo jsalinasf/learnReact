@@ -6,11 +6,14 @@ class App extends Component {
     this.state = {
       firstName: "",
       lastName: "",
-      age: 0,
-      destiny: "",
-      kosher: false,
-      vegetarian: false,
-      lactoseFree: false
+      age: "",
+      gender: "",
+      destination: "",
+      dietaryRestrictions: {
+        isKosher: false,
+        isVegan: false,
+        isLactoseFree: false
+      }
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -18,7 +21,14 @@ class App extends Component {
   handleChange(event) {
     const { name, value, type, checked } = event.target;
     type === "checkbox"
-      ? this.setState({ [name]: checked })
+      ? this.setState(prevState => {
+          return {
+            dietaryRestrictions: {
+              ...prevState.dietaryRestrictions,
+              [name]: checked
+            }
+          };
+        })
       : this.setState({ [name]: value });
   }
 
@@ -29,6 +39,10 @@ class App extends Component {
     );
   }
 
+  // Elements that work with values can be updated with this.setState({[name]: value})
+  // That's why handleChange works for input text, select and radio
+  // But since checbox works with checked, I need to extend handleChange to use the ternary operator
+
   render() {
     return (
       <div>
@@ -38,12 +52,13 @@ class App extends Component {
           <p>Please complete the following form</p>
           <form onSubmit={this.handleClick}>
             <label className="label" htmlFor="firstName">
-              First Name:{" "}
+              First Name:
             </label>
             <input
               type="text"
               id="firstName"
               name="firstName"
+              value={this.state.firstName}
               onChange={this.handleChange}
             />
             <br />
@@ -54,6 +69,7 @@ class App extends Component {
               type="text"
               id="lastName"
               name="lastName"
+              value={this.state.lastName}
               onChange={this.handleChange}
             />
             <br />
@@ -66,53 +82,87 @@ class App extends Component {
               name="age"
               min="1"
               max="150"
+              value={this.state.age}
               onChange={this.handleChange}
             />
             <br />
-            <label className="label" htmlFor="destiny">
-              Destiny:
+            <fieldset>
+              <legend>Gender: </legend>
+              <label className="label" htmlFor="genderMale">
+                Male
+              </label>
+              <input
+                type="radio"
+                id="genderMale"
+                name="gender"
+                value="male"
+                checked={this.state.gender === "male"}
+                onChange={this.handleChange}
+              />
+              <br />
+              <label className="label" htmlFor="genderFemale">
+                Female
+              </label>
+              <input
+                type="radio"
+                id="genderMale"
+                name="gender"
+                checked={this.state.gender === "female"}
+                value="female"
+                onChange={this.handleChange}
+              />
+            </fieldset>
+            <br />
+            <label className="label" htmlFor="destination">
+              Destination:
             </label>
-            <select id="destiny" name="destiny" onChange={this.handleChange}>
-              <option value="Argentina">Argentina</option>
-              <option value="Brazil">Brazil</option>
-              <option value="Ecuador">Ecuador</option>
-              <option value="France">France</option>
-              <option value="Usa">Usa</option>
+            <select
+              id="destination"
+              name="destination"
+              onChange={this.handleChange}
+              value={this.state.destination}
+            >
+              <option value="">--Please choose a destination--</option>
+              <option value="argentina">Argentina</option>
+              <option value="brazil">Brazil</option>
+              <option value="ecuador">Ecuador</option>
+              <option value="france">France</option>
+              <option value="usa">Usa</option>
             </select>
             <br />
             <fieldset>
-              <legend>Dietary Restrictions</legend>
+              <legend>Dietary Restrictions: </legend>
               <p>Please mark all that apply:</p>
-              <label className="label" htmlFor="kosher">
+              <label className="label" htmlFor="isKosher">
                 Kosher
               </label>
               <input
+                id="isKosher"
                 type="checkbox"
-                id="kosher"
-                name="kosher"
-                value={this.state.kosher}
+                name="isKosher"
                 onChange={this.handleChange}
+                checked={this.state.dietaryRestrictions.isKosher}
               />
               <br />
-              <label className="label" htmlFor="vegetarian">
+              <label className="label" htmlFor="isVegan">
                 Vegetarian
               </label>
               <input
+                id="isVegan"
                 type="checkbox"
-                id="vegetarian"
-                name="vegetarian"
-                value={this.state.vegetarian}
+                name="isVegan"
+                checked={this.state.dietaryRestrictions.isVegan}
                 onChange={this.handleChange}
               />
               <br />
-              <label className="label" htmlFor="lactoseFree">
+              <label className="label" htmlFor="isLactoseFree">
                 Lactose Free
               </label>
               <input
+                id="isLactoseFree"
                 type="checkbox"
-                id="lactoseFree"
-                name="lactoseFree"
-                value={this.state.lactoseFree}
+                name="isLactoseFree"
+                checked={this.state.dietaryRestrictions.isLactoseFree}
                 onChange={this.handleChange}
               />
             </fieldset>
@@ -126,12 +176,21 @@ class App extends Component {
           <p>Name: {this.state.firstName}</p>
           <p>Last Name: {this.state.lastName}</p>
           <p>Age: {this.state.age}</p>
-          <p>Your Destiny: {this.state.destiny}</p>
+          <p>Gender: {this.state.gender}</p>
+          <p>Your destination: {this.state.destination}</p>
           <div>
             <h3>Dietary Restrictions:</h3>
-            <p>Kosher: {this.state.kosher ? "Yes" : "No"}</p>
-            <p>Vegetarian: {this.state.vegetarian ? "Yes" : "No"}</p>
-            <p>Lactose Free: {this.state.lactoseFree ? "Yes" : "No"}</p>
+            <p>
+              Kosher: {this.state.dietaryRestrictions.isKosher ? "Yes" : "No"}
+            </p>
+            <p>
+              Vegetarian:{" "}
+              {this.state.dietaryRestrictions.isVegan ? "Yes" : "No"}
+            </p>
+            <p>
+              Lactose Free:{" "}
+              {this.state.dietaryRestrictions.isLactoseFree ? "Yes" : "No"}
+            </p>
           </div>
         </div>
       </div>
