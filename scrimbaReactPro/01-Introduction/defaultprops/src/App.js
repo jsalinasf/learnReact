@@ -1,5 +1,5 @@
 import React from "react";
-import FunctionalCard from "./components/FunctionalFunctionalCard";
+import FunctionalCard from "./components/FunctionalCard";
 import ClassCard from "./components/ClassCard";
 
 const App = () => {
