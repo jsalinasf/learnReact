@@ -11,8 +11,8 @@ const Card = props => {
 
 Card.defaultProps = {
   backgroundColor: "crimson",
-  width: 350,
-  height: 350
+  width: 50,
+  height: 50
 };
 
 export default Card;
