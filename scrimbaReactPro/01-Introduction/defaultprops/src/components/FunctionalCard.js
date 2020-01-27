@@ -10,10 +10,15 @@ const Card = props => {
   return <div className={"card"} style={styles}></div>;
 };
 
+Card.propTypes = {
+  backgroundColor: PropTypes.string.isRequired,
+  width: PropTypes.number.isRequired
+};
+
 Card.defaultProps = {
-  backgroundColor: "crimson",
-  width: 50,
-  height: 50
+  // backgroundColor: "crimson",
+  // width: 50,
+  // height: 50
 };
 
 export default Card;
