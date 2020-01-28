@@ -6,7 +6,13 @@
   box-sizing: border-box;
 }
 
-CallOut {
-  border: 1px solid crimson 10%;
-  background-color: darkkhaki;
+main > h1 {
+  text-align: center;
+}
+
+.callout {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 20px;
+  background-color: #c0fffe;
 }
