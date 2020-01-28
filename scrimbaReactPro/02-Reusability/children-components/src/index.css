@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: crimson;
+CallOut {
+  border: 1px solid crimson 10%;
+  background-color: darkkhaki;
 }
