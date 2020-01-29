@@ -15,4 +15,5 @@ main > h1 {
   border-radius: 3px;
   padding: 20px;
   background-color: #c0fffe;
+  margin-bottom: 10px;
 }
