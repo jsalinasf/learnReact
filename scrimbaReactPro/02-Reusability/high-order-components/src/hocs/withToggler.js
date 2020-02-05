@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 
 class Toggler extends Component {
   state = {
-    on: false
+    on: this.props.defaulOnValue
   };
 
   toggle = () => {
@@ -15,16 +15,21 @@ class Toggler extends Component {
       };
     });
   };
+
   render() {
-    const Component = this.props.component;
-    return (
-      <Component on={this.state.on} toggle={this.toggle} {...this.props} />
-    );
+    const { component: C, defaulOnValue, ...props } = this.props;
+    return <C on={this.state.on} toggle={this.toggle} {...props} />;
   }
 }
 
-export function withToggler(component) {
+export function withToggler(component, optionsObj) {
   return function(props) {
-    return <Toggler component={component} {...props} />;
+    return (
+      <Toggler
+        component={component}
+        defaulOnValue={optionsObj.defaulOnValue}
+        {...props}
+      />
+    );
   };
 }
