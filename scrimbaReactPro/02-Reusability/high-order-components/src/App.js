@@ -1,22 +1,15 @@
 import React from 'react';
-import { withFavoriteNumber } from './components/withFavoriteNumber';
+import Menu from './components/Menu';
+import Favorite from './components/Favorite';
 
-const App = props => {
+function App() {
   return (
     <div className='container'>
-      <h1>High Order Components</h1>
-      <p>
-        A function that takes a component as its first argument and returns a
-        new component that wraps the given component, providing extra
-        capabilities to it.
-      </p>
-      <br />
-      <div>{props.favoriteNumber}</div>
-      <br />
-      <div>{props.originalProps}</div>
+      <Menu />
+      <hr />
+      <Favorite />
     </div>
   );
-};
+}
 
-// export default App;
-export default withFavoriteNumber(App);
+export default App;
