@@ -12,6 +12,8 @@ const App = props => {
       </p>
       <br />
       <div>{props.favoriteNumber}</div>
+      <br />
+      <div>{props.originalProps}</div>
     </div>
   );
 };
