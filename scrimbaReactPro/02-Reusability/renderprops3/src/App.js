@@ -1,6 +1,5 @@
 import React from 'react';
 import DataFetcher from './components/DataFetcher';
-import Display from './components/Display';
 
 function App() {
   return (
@@ -20,7 +19,7 @@ function App() {
          * DataFetcher component based on what you see here.)
          */
         ({ loading, data }) => {
-          return <Display loading={loading} data={data} />;
+          return loading ? <h1>Loading...</h1> : <p>{JSON.stringify(data)}</p>;
         }}
       </DataFetcher>
     </div>
