@@ -1,10 +1,11 @@
 import React from 'react';
-import DataFetcher from './DataFetcher';
+import DataFetcher from './components/DataFetcher';
+import Display from './components/Display';
 
 function App() {
   return (
     <div>
-      <DataFetcher url='https://swapi.co/api/people/1'>
+      <DataFetcher url='https://cors-anywhere.herokuapp.com/https://swapi.co/api/people/4'>
         {/**
          * Part 2: Call the function the DataFetcher is expecting.
          * If should receive the data and the loading state, and return the JSX
@@ -17,7 +18,10 @@ function App() {
          * on what's already written here for you, you should be able to figure
          * out which of these we're using. (You may have to make changes to the
          * DataFetcher component based on what you see here.)
-         */}
+         */
+        ({ loading, data }) => {
+          return <Display loading={loading} data={data} />;
+        }}
       </DataFetcher>
     </div>
   );
