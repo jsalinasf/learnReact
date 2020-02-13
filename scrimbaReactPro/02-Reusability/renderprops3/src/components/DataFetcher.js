@@ -20,14 +20,24 @@ import React, { Component } from 'react';
 class DataFetcher extends Component {
   state = {
     loading: false,
-    data: null
+    data: null,
+    error: null
   };
 
   componentDidMount() {
     this.setState({ loading: true });
     fetch(this.props.url)
-      .then(res => res.json())
-      .then(data => this.setState({ data: data, loading: false }));
+      .then(res => {
+        if (!res.ok) {
+          throw Error(res.statusText);
+        }
+        return res.json();
+      })
+      // .then(res => res.json())
+      .then(data => this.setState({ data: data, loading: false }))
+      .catch(error => {
+        this.setState({ error: error.toString(), loading: false });
+      });
   }
 
   render() {
@@ -49,7 +59,8 @@ class DataFetcher extends Component {
       <div>
         {this.props.children({
           loading: this.state.loading,
-          data: this.state.data
+          data: this.state.data,
+          error: this.state.error
         })}
       </div>
     );

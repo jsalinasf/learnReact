@@ -18,8 +18,16 @@ function App() {
          * out which of these we're using. (You may have to make changes to the
          * DataFetcher component based on what you see here.)
          */
-        ({ loading, data }) => {
-          return loading ? <h1>Loading...</h1> : <p>{JSON.stringify(data)}</p>;
+        ({ loading, data, error }) => {
+          if (!error) {
+            return loading ? (
+              <h1>Loading...</h1>
+            ) : (
+              <p>{JSON.stringify(data)}</p>
+            );
+          } else {
+            return <p>{error}</p>;
+          }
         }}
       </DataFetcher>
     </div>
