@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 20px auto;
+  padding: 20px;
+  width: 500px;
+  height: 300px;
+  border: 1px solid crimson;
+}
