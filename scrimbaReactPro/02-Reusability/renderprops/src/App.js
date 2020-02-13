@@ -6,7 +6,7 @@ const App = () => {
     <div>
       <h1>Render Props</h1>
       <Example
-        myFunc={function isBobIncluded(arr) {
+        render={function(arr) {
           return <p>{`Is Bob Included? ${arr.includes('Bob')}`}</p>;
         }}
       />

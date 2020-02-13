@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Example = props => {
-  return <div>{props.myFunc(['Mike', 'Charles', 'Bob', 'George'])}</div>;
+  return <div>{props.render(['Mike', 'Charles', 'Mike', 'George'])}</div>;
 };
 
 export default Example;
