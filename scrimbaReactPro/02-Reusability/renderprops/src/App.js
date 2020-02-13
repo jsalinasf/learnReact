@@ -6,8 +6,8 @@ const App = () => {
     <div>
       <h1>Render Props</h1>
       <Example
-        render={function(number) {
-          return <h1>{number}</h1>;
+        myFunc={function isBobIncluded(arr) {
+          return <p>{`Is Bob Included? ${arr.includes('Bob')}`}</p>;
         }}
       />
     </div>
