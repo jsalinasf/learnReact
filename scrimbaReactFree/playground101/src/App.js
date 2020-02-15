@@ -9,6 +9,7 @@ const Picture = props => {
 
   return (
     <div style={divStyle}>
+      <p>{props.alt}</p>
       <img src={props.src} alt={props.alt}></img>
       {props.children}
     </div>
@@ -27,12 +28,25 @@ const Button = props => {
       setLabel('Large');
       setPictureId(props.id);
     }
-  }, []);
+  }, [props.id, props.pictureSrc]);
 
   return (
     <div>
       <button onClick={() => props.setCurrentPic(pictureId)}>{label}</button>
     </div>
+  );
+};
+
+const Caption = props => <p>{props.text}</p>;
+
+const ChangeCaption = props => {
+  return (
+    <input
+      type='text'
+      name={props.name}
+      onChange={props.onChange}
+      value={props.value}
+    ></input>
   );
 };
 
@@ -42,17 +56,41 @@ const App = () => {
     { id: 2, src: 'http://via.placeholder.com/400x200' },
     { id: 3, src: 'http://via.placeholder.com/200x100' }
   ]);
+  const [captions, setCaptions] = useState(['image 1', 'image 2', 'image 3']);
   const [currentPic, setCurrentPic] = useState(null);
+
+  const handleChange = event => {
+    setCaptions(prevState => {
+      // const newCaptions = captions.map((item, i) => {
+      //   if (parseInt(event.target.name) === i) {
+      //     return event.target.value;
+      //   } else {
+      //     return item;
+      //   }
+      // });
+      let newCaptions = prevState.slice();
+      newCaptions[event.target.name] = event.target.value;
+      console.log(newCaptions);
+      return newCaptions;
+    });
+    console.log(captions);
+  };
 
   return (
     <div>
-      {pictures.map(picture => {
+      {pictures.map((picture, i) => {
         return (
-          <Picture key={picture.id} src={picture.src} alt={'A Placeholder'}>
+          <Picture key={picture.id} src={picture.src} alt=''>
+            <Caption text={captions[i]} />
             <Button
               pictureSrc={picture.src}
               setCurrentPic={setCurrentPic}
               id={picture.id}
+            />
+            <ChangeCaption
+              name={picture.id - 1}
+              onChange={handleChange}
+              value={captions[i]}
             />
           </Picture>
         );
