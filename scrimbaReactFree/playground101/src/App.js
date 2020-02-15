@@ -60,20 +60,16 @@ const App = () => {
   const [currentPic, setCurrentPic] = useState(null);
 
   const handleChange = event => {
-    setCaptions(prevState => {
-      // const newCaptions = captions.map((item, i) => {
-      //   if (parseInt(event.target.name) === i) {
-      //     return event.target.value;
-      //   } else {
-      //     return item;
-      //   }
-      // });
-      let newCaptions = prevState.slice();
-      newCaptions[event.target.name] = event.target.value;
-      console.log(newCaptions);
-      return newCaptions;
+    event.persist();
+    setCaptions(captions => {
+      let newArray = captions.map((item, index) => {
+        if (parseInt(event.target.name) === index) {
+          return event.target.value;
+        }
+        return item;
+      });
+      return newArray;
     });
-    console.log(captions);
   };
 
   return (
