@@ -22,10 +22,14 @@ class App extends Component {
     console.log('---------------------------------------------------------');
     return (
       <div>
-        <button onClick={this.incrementCount}>{this.state.count}</button>
+        <button onClick={this.incrementCount}>
+          Current Count: {this.state.count}
+        </button>
         <h1>App Component</h1>
-        {/* first GrandParent and its tree will re render because state changed */}
-        {/* Open Browser console */}
+        {/* When App first loads, both of GrandParents components should load */}
+        {/* Then, when state changes, only */}
+        {/* first GrandParent and its tree will re render */}
+        {/* Open Browser console*/}
         <GrandParent count={this.state.count} />
         <GrandParent />
       </div>
