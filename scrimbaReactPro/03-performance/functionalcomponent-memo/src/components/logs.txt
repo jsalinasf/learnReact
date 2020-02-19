@@ -1,22 +1,46 @@
-[👴🏼]   [ ]   [ ]   [ ] rendered GrandParent.js:6
-[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:6
-[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
-[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
-[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
-[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
-[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:6
-[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
-[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
-[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
-[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
-[👴🏼]   [ ]   [ ]   [ ] rendered GrandParent.js:6
-[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:6
-[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
-[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
-[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
-[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
-[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:6
-[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
-[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
-[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
+These are the logs when absolutely everything gets rendered:
+------------------------------------------------------------------------------- App.js:11
+[👴🏼]   [ ]   [ ]   [ ] rendered GrandParent.js:5
+[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:5
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:5
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:4
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:5
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:4
+[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:5
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:5
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:4
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:5
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:4
+[👴🏼]   [ ]   [ ]   [ ] rendered GrandParent.js:5
+[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:5
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:5
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:4
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:5
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:4
+[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:5
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:5
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:4
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:5
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:4
+
+
+These are the logs when passing state to only one GrandParent
+In this example, only GrandChildren component has been upgraded to use React.memo():
+------------------------------------------------------------------------------- App.js:11
+[👴🏼]   [ ]   [ ]   [ ] rendered GrandParent.js:5
+[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:5
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:5
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:4
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:5
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:4
+[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:5
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:5
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:4
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:5
 [ ]   [ ]   [ ]   [👶🏻] rendered
+
+
+These are the logs after upgrading all of the component to use React.memo()
+Only, the GrandParent got rendered:
+------------------------------------------------------------------------------- App.js:11
+[👴🏼]   [ ]   [ ]   [ ] rendered

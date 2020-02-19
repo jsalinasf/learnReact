@@ -9,4 +9,4 @@ const GrandChildren = props => {
   );
 };
 
-export default GrandChildren;
+export default React.memo(GrandChildren);

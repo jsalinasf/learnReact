@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import GrandChildren from './GrandChildren';
+
+// In here Im using another form to use React.memo()
 
 const Child = props => {
   console.log('[ ]   [ ]   [🧒🏻]   [ ] rendered');
@@ -12,4 +14,4 @@ const Child = props => {
   );
 };
 
-export default Child;
+export default memo(Child);

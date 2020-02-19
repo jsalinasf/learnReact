@@ -20,7 +20,7 @@ const App = props => {
       {/* Then, when state changes, only */}
       {/* first GrandParent and its tree will re render */}
       {/* Open Browser console*/}
-      <GrandParent />
+      <GrandParent count={count} />
       <GrandParent />
     </div>
   );
