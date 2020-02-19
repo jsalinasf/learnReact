@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import GrandParent from './components/GrandParent';
 
 const App = props => {
-  [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-  incrementCount(setCount(count + 1));
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
 
-  console.log('---------------------------------------------------------');
+  console.log(
+    '-------------------------------------------------------------------------------'
+  );
+
   return (
     <div>
       <button onClick={incrementCount}>Current Count: {count}</button>
