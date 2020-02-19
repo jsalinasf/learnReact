@@ -19,11 +19,14 @@ class App extends Component {
   }
 
   render() {
+    console.log('---------------------------------------------------------');
     return (
       <div>
         <button onClick={this.incrementCount}>{this.state.count}</button>
         <h1>App Component</h1>
-        <GrandParent />
+        {/* first GrandParent and its tree will re render because state changed */}
+        {/* Open Browser console */}
+        <GrandParent count={this.state.count} />
         <GrandParent />
       </div>
     );
