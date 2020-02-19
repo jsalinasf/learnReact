@@ -1,0 +1,22 @@
+[👴🏼]   [ ]   [ ]   [ ] rendered GrandParent.js:6
+[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:6
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
+[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:6
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
+[👴🏼]   [ ]   [ ]   [ ] rendered GrandParent.js:6
+[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:6
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
+[ ]   [👩🏼‍⚕️]   [ ]   [ ] rendered Parent.js:6
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
+[ ]   [ ]   [ ]   [👶🏻] rendered 2 GrandChildren.js:5
+[ ]   [ ]   [🧒🏻]   [ ] rendered Child.js:6
+[ ]   [ ]   [ ]   [👶🏻] rendered
