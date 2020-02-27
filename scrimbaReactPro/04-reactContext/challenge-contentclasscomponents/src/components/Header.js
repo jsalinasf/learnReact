@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import ThemeContext from '../ThemeContext';
+import UserContext from '../userContext';
 
 class Header extends Component {
-  static contextType = ThemeContext;
+  static contextType = UserContext;
   render() {
     const currentUser = this.context;
     return (

@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 import './index.css';
-import ThemeContext from './ThemeContext';
+import UserContext from './userContext';
 
 ReactDOM.render(
-  <ThemeContext.Provider value={'mike99'}>
+  <UserContext.Provider value={'george87'}>
     <App />
-  </ThemeContext.Provider>,
+  </UserContext.Provider>,
   document.getElementById('root')
 );

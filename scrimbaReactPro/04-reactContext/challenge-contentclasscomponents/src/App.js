@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import ThemeContext from './ThemeContext';
+import UserContext from './userContext';
 
 class App extends Component {
-  static contextType = ThemeContext;
+  static contextType = UserContext;
   render() {
     const currentUser = this.context;
     return (
       <div>
         <Header />
         <main>
-          <p>No new notifications, {currentUser}!</p>
+          <p>No new notifications, {currentUser}! 🎉</p>
         </main>
       </div>
     );
