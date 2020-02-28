@@ -5,7 +5,7 @@ import App from './App';
 import UserContext from './userContext';
 
 ReactDOM.render(
-  <UserContext.Provider value={'mike99'}>
+  <UserContext.Provider value={'charlie99'}>
     <App />
   </UserContext.Provider>,
   document.getElementById('root')
