@@ -3,7 +3,7 @@ const { Provider, Consumer } = React.createContext();
 
 class UserContextProvider extends Component {
   state = {
-    username: 'mike12'
+    username: 'sara2020'
   };
 
   updateUsername = () => {
@@ -13,7 +13,10 @@ class UserContextProvider extends Component {
   render() {
     return (
       <Provider
-        value={{ username: this.username, updateUsername: this.updateUsername }}
+        value={{
+          username: this.state.username,
+          updateUsername: this.updateUsername
+        }}
       >
         {this.props.children}
       </Provider>
