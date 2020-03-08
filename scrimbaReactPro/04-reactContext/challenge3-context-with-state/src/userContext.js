@@ -6,8 +6,8 @@ class UserContextProvider extends Component {
     username: 'sara2020'
   };
 
-  updateUsername = () => {
-    this.setState({ username: 'jake3' });
+  updateUsername = newUsername => {
+    this.setState({ username: newUsername });
   };
 
   render() {

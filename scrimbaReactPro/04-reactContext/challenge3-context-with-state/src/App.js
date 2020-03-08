@@ -27,8 +27,11 @@ class App extends Component {
                   name='userNameInput'
                   placeholder='New username'
                   onChange={this.handleChange}
+                  value={this.state.newUsername}
                 />
-                <button onClick={context.updateUsername}>
+                <button
+                  onClick={() => context.updateUsername(this.state.newUsername)}
+                >
                   Update Username
                 </button>
               </div>
