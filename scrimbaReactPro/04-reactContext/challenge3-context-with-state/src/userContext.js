@@ -3,7 +3,7 @@ const { Provider, Consumer } = React.createContext();
 
 class UserContextProvider extends Component {
   state = {
-    username: 'sara2020'
+    username: 'user01'
   };
 
   updateUsername = newUsername => {
