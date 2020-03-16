@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 
 function App() {
-  const [answer, setAnswer] = useState('true');
+  let [counter, setCounter] = useState(0);
 
-  function handleChangeAnswer() {
-    setAnswer(!answer);
+  function handleIncreaseCounter() {
+    setCounter(++counter);
   }
 
   return (
     <div>
-      <h1>React Hooks</h1>
-      <p>My first hook: {answer === true ? 'Yes' : 'No'}</p>
-      <button onClick={handleChangeAnswer}>Change Answer</button>
+      <h1>{counter}</h1>
+      <button onClick={handleIncreaseCounter}>Increase Counter</button>
     </div>
   );
 }
