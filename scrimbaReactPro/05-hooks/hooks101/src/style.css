@@ -1,4 +1,13 @@
 body {
   background-color: dodgerblue;
   color: #fff;
+  text-align: center;
+  font-size: 5rem;
+}
+
+button {
+  height: 75px;
+  width: 200px;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
