@@ -4,7 +4,7 @@ function App() {
   let [counter, setCounter] = useState(0);
 
   function handleIncreaseCounter() {
-    setCounter(++counter);
+    setCounter(prevCounter => prevCounter + 1);
   }
 
   function handleResetCounter() {
@@ -12,7 +12,7 @@ function App() {
   }
 
   function handleDecreaseCounter() {
-    setCounter(--counter);
+    setCounter(prevCounter => prevCounter - 1);
   }
 
   return (
