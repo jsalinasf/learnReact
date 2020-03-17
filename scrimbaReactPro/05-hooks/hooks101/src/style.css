@@ -1,13 +1,9 @@
+* {
+  margin-bottom: 10px;
+}
+
 body {
   background-color: dodgerblue;
   color: #fff;
   text-align: center;
-  font-size: 3rem;
-}
-
-button {
-  height: 50px;
-  width: 150px;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
 }

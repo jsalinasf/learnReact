@@ -1,41 +1,51 @@
 import React, { useState } from 'react';
 
 function App() {
-  let [counter, setCounter] = useState(0);
+  const [inputData, setInputData] = useState({ firstName: '', lastName: '' });
+  const [contactsData, setContactsData] = useState([]);
 
-  function handleIncreaseCounter() {
-    setCounter(prevCounter => prevCounter + 1);
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setInputData(prevInput => ({ ...prevInput, [name]: value }));
   }
 
-  function handleResetCounter() {
-    setCounter(0);
+  function handleSubmit(event) {
+    event.preventDefault();
+    setContactsData(prevContactsData => [...prevContactsData, inputData]);
+    setInputData({ firstName: '', lastName: '' });
   }
 
-  function handleDecreaseCounter() {
-    setCounter(prevCounter => prevCounter - 1);
-  }
-
-  function handleDoubleCounter() {
-    setCounter(prevCounter => prevCounter * 2);
-  }
-
-  function handleHalfCounter() {
-    setCounter(prevCounter => Math.ceil(prevCounter / 2));
-  }
+  const contacts = contactsData.map(contact => (
+    <h2 key={contact.firstName + contact.lastName}>
+      {contact.firstName} {contact.lastName}
+    </h2>
+  ));
 
   return (
-    <div>
-      <h1>{counter}</h1>
-      <button onClick={handleDoubleCounter}>Double</button>
-      <br />
-      <button onClick={handleIncreaseCounter}>Increase</button>
-      <br />
-      <button onClick={handleResetCounter}>Reset</button>
-      <br />
-      <button onClick={handleDecreaseCounter}>Decrease</button>
-      <br />
-      <button onClick={handleHalfCounter}>Half</button>
-    </div>
+    <>
+      <form onSubmit={handleSubmit} id='myForm'>
+        <input
+          placeholder='First Name'
+          type='input'
+          id='firstName'
+          name='firstName'
+          value={inputData.firstName}
+          onChange={handleChange}
+        ></input>
+        <br />
+        <input
+          placeholder='Last Name'
+          type='input'
+          id='lastName'
+          name='lastName'
+          value={inputData.lastName}
+          onChange={handleChange}
+        ></input>
+        <br />
+        <button type='submit'>Add contact</button>
+      </form>
+      {contacts}
+    </>
   );
 }
 
