@@ -1,51 +1,47 @@
-import React, { useState } from 'react';
+// componentDidMount
+// componentDidUpdate
+// component WillUnmount
+
+// useEffect a Hook that allows to produce "side effects" on my components
+
+// Side Effects? -> anything that reaches out of the component and does somethings such as:
+// Network request
+// Manual DOM Manipulation
+// Event Listeners or timeouts and intervals
+
+import React, { useState, useEffect } from 'react';
+import randomcolor from 'randomcolor';
 
 function App() {
-  const [inputData, setInputData] = useState({ firstName: '', lastName: '' });
-  const [contactsData, setContactsData] = useState([]);
+  const [count, setCount] = useState(0);
+  let [color, setColor] = useState('');
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setInputData(prevInput => ({ ...prevInput, [name]: value }));
+  function handleDecrement() {
+    setCount(prevCount => prevCount - 1);
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    setContactsData(prevContactsData => [...prevContactsData, inputData]);
-    setInputData({ firstName: '', lastName: '' });
+  function handleIncrement() {
+    setCount(prevCount => prevCount + 1);
   }
 
-  const contacts = contactsData.map(contact => (
-    <h2 key={contact.firstName + contact.lastName}>
-      {contact.firstName} {contact.lastName}
-    </h2>
-  ));
+  // this useEffect will run every time "Count" changes
+  // pay attention to the second parameter that useEffect is receiving
+  useEffect(() => {
+    setColor(randomcolor());
+  }, [count]);
+
+  // this useEffect will run only ONCE, when the component mounts
+  // pay attention to the second parameter that useEffect is receiving
+  // useEffect(() => {
+  //   setColor(randomcolor());
+  // }, []);
 
   return (
-    <>
-      <form onSubmit={handleSubmit} id='myForm'>
-        <input
-          placeholder='First Name'
-          type='input'
-          id='firstName'
-          name='firstName'
-          value={inputData.firstName}
-          onChange={handleChange}
-        ></input>
-        <br />
-        <input
-          placeholder='Last Name'
-          type='input'
-          id='lastName'
-          name='lastName'
-          value={inputData.lastName}
-          onChange={handleChange}
-        ></input>
-        <br />
-        <button type='submit'>Add contact</button>
-      </form>
-      {contacts}
-    </>
+    <div>
+      <h1 style={{ color: color }}>{count}</h1>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
+    </div>
   );
 }
 
