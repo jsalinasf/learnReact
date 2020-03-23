@@ -16,32 +16,32 @@ function App() {
   const [count, setCount] = useState(0);
   let [color, setColor] = useState('');
 
-  // Examples of things that have side effects outside the component
-  // that will require MANUAL cleanup
-  // document.addEventListener...
-  // socket subscription
+  function handleDecrement() {
+    setCount(prevCount => prevCount - 1);
+  }
 
-  // We can use more than one useEffect
-
-  // component willMount
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCount(prevCount => prevCount + 1);
-    }, 1000);
-
-    // To clear the Interval, useEffect has to return a cleanup function
-    // componentWillUnmount
-    return () => clearInterval(intervalId);
-  }, []);
+  function handleIncrement() {
+    setCount(prevCount => prevCount + 1);
+  }
 
   // component willUpdate
+  // this useEffect will run every time "Count" changes
+  // pay attention to the second parameter that useEffect is receiving [count]
   useEffect(() => {
     setColor(randomcolor());
   }, [count]);
 
+  // this useEffect will run only ONCE, when the component mounts
+  // pay attention to the second parameter that useEffect is receiving []
+  // useEffect(() => {
+  //   setColor(randomcolor());
+  // }, []);
+
   return (
     <div>
       <h1 style={{ color: color }}>{count}</h1>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
     </div>
   );
 }
