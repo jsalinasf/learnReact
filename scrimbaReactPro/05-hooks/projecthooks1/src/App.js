@@ -8,13 +8,19 @@ function App() {
     setText(value);
   }
 
+  function handleClick() {
+    const totalWords = document.querySelector('textarea').innerHTML;
+    const countWords = totalWords.split(' ').length;
+    document.querySelector('.word-count').innerHTML = countWords;
+  }
+
   return (
     <div>
       <h1>How fast do you type?</h1>
       <textarea onChange={handleChange} value={text} />
       <h4>Time remaining: ?</h4>
-      <button>Start</button>
-      <h1>Word Count: ?</h1>
+      <button onClick={handleClick}>Start</button>
+      <h1 className='word-count'>Word Count: ?</h1>
     </div>
   );
 }
