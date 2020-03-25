@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 function App() {
+  const STARTING_TIME = 3;
   const [text, setText] = useState('');
-  const [timeRemaining, setTimeRemaining] = useState('5');
+  const [timeRemaining, setTimeRemaining] = useState(STARTING_TIME);
   const [isTimeRunning, setIsTimeRunning] = useState(false);
   const [wordCount, setWordCount] = useState(0);
 
@@ -20,23 +21,25 @@ function App() {
     setTimeRemaining(prevTimeRemaining => prevTimeRemaining - 1);
   }
 
-  function handleClick() {
-    controlUIElements(true);
+  function startGame() {
+    updateTextButton();
     setIsTimeRunning(true);
-    setTimeRemaining(5);
+    setTimeRemaining(STARTING_TIME);
     setWordCount(0);
+    setText('');
   }
 
-  function controlUIElements(areDisabled) {
-    if (areDisabled) {
-      document.querySelector('button').disabled = true;
-      document.querySelector('textarea').disabled = false;
+  function endGame() {
+    setIsTimeRunning(false);
+    setWordCount(calculateWordCount(text));
+    updateTextButton();
+  }
+
+  function updateTextButton() {
+    if (isTimeRunning) {
       document.querySelector('button').innerHTML = 'Type Fast!';
-      setText('');
     } else {
       document.querySelector('button').innerHTML = 'Play Again';
-      document.querySelector('button').disabled = false;
-      document.querySelector('textarea').disabled = true;
     }
   }
 
@@ -44,18 +47,22 @@ function App() {
     if (timeRemaining > 0 && isTimeRunning) {
       setTimeout(decrementTimeRemaining, 1000);
     } else if (timeRemaining === 0) {
-      setIsTimeRunning(false);
-      setWordCount(calculateWordCount(text));
-      controlUIElements(false);
+      endGame();
     }
   }, [timeRemaining, isTimeRunning]);
 
   return (
     <div>
       <h1>How fast do you type?</h1>
-      <textarea onChange={handleChange} value={text} disabled={true} />
+      <textarea
+        onChange={handleChange}
+        value={text}
+        disabled={!isTimeRunning}
+      />
       <h4>Time remaining: {timeRemaining}</h4>
-      <button onClick={handleClick}>Start</button>
+      <button onClick={startGame} disabled={isTimeRunning}>
+        Start
+      </button>
       <h1>Word Count: {wordCount}</h1>
     </div>
   );
