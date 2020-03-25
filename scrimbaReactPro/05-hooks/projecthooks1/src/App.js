@@ -22,7 +22,6 @@ function App() {
   }
 
   function startGame() {
-    updateTextButton();
     setIsTimeRunning(true);
     setTimeRemaining(STARTING_TIME);
     setWordCount(0);
@@ -32,15 +31,6 @@ function App() {
   function endGame() {
     setIsTimeRunning(false);
     setWordCount(calculateWordCount(text));
-    updateTextButton();
-  }
-
-  function updateTextButton() {
-    if (isTimeRunning) {
-      document.querySelector('button').innerHTML = 'Type Fast!';
-    } else {
-      document.querySelector('button').innerHTML = 'Play Again';
-    }
   }
 
   useEffect(() => {
