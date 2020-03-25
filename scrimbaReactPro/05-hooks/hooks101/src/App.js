@@ -1,47 +1,43 @@
-// componentDidMount
-// componentDidUpdate
-// component WillUnmount
+// useRef Hook
+// to focus a specific element
 
-// useEffect a Hook that allows to produce "side effects" on my components
+// You cant use document.getElementbyId because there could be many
+// instances of a component and then multiple elements with the same id
 
-// Side Effects? -> anything that reaches out of the component and does somethings such as:
-// Network request
-// Manual DOM Manipulation
-// Event Listeners or timeouts and intervals
-
-import React, { useState, useEffect } from 'react';
-import randomcolor from 'randomcolor';
+import React, { useState, useRef } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0);
-  let [color, setColor] = useState('');
+  const [currentTodo, setCurrentTodo] = useState('');
+  const [todoList, setTodoList] = useState([]);
+  const inputRef = useRef(null);
 
-  // Examples of things that have side effects outside the component
-  // that will require MANUAL cleanup
-  // document.addEventListener...
-  // socket subscription
+  function handleChange(event) {
+    setCurrentTodo(event.target.value);
+  }
 
-  // We can use more than one useEffect
+  function addTodo(event) {
+    event.preventDefault();
+    setTodoList(prevElements => [...prevElements, currentTodo]);
+    setCurrentTodo('');
+    inputRef.current.focus();
+  }
 
-  // component willMount
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCount(prevCount => prevCount + 1);
-    }, 1000);
-
-    // To clear the Interval, useEffect has to return a cleanup function
-    // componentWillUnmount
-    return () => clearInterval(intervalId);
-  }, []);
-
-  // component willUpdate
-  useEffect(() => {
-    setColor(randomcolor());
-  }, [count]);
+  function displayTodoArray() {
+    return todoList.map(item => <h2>{item}</h2>);
+  }
 
   return (
     <div>
-      <h1 style={{ color: color }}>{count}</h1>
+      <form>
+        <input
+          ref={inputRef}
+          type='text'
+          value={currentTodo}
+          onChange={handleChange}
+        ></input>
+        <button onClick={addTodo}>Add TO-DO item </button>
+      </form>
+      {displayTodoArray()}
     </div>
   );
 }
