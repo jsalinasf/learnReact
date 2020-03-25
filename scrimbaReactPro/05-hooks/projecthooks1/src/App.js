@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 function App() {
   const [text, setText] = useState('');
-  const [timeRemaining, setTimeRemaining] = useState('2');
+  const [timeRemaining, setTimeRemaining] = useState('5');
   const [isTimeRunning, setIsTimeRunning] = useState(false);
+  const [wordCount, setWordCount] = useState(0);
 
   function handleChange(e) {
     const { value } = e.target;
@@ -20,8 +21,23 @@ function App() {
   }
 
   function handleClick() {
+    controlUIElements(true);
     setIsTimeRunning(true);
-    setTimeRemaining(2);
+    setTimeRemaining(5);
+    setWordCount(0);
+  }
+
+  function controlUIElements(areDisabled) {
+    if (areDisabled) {
+      document.querySelector('button').disabled = true;
+      document.querySelector('textarea').disabled = false;
+      document.querySelector('button').innerHTML = 'Type Fast!';
+      setText('');
+    } else {
+      document.querySelector('button').innerHTML = 'Play Again';
+      document.querySelector('button').disabled = false;
+      document.querySelector('textarea').disabled = true;
+    }
   }
 
   useEffect(() => {
@@ -29,16 +45,18 @@ function App() {
       setTimeout(decrementTimeRemaining, 1000);
     } else if (timeRemaining === 0) {
       setIsTimeRunning(false);
+      setWordCount(calculateWordCount(text));
+      controlUIElements(false);
     }
   }, [timeRemaining, isTimeRunning]);
 
   return (
     <div>
       <h1>How fast do you type?</h1>
-      <textarea onChange={handleChange} value={text} />
+      <textarea onChange={handleChange} value={text} disabled={true} />
       <h4>Time remaining: {timeRemaining}</h4>
       <button onClick={handleClick}>Start</button>
-      <h1 className='word-count'>Word Count: ?</h1>
+      <h1>Word Count: {wordCount}</h1>
     </div>
   );
 }
