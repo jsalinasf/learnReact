@@ -6,7 +6,7 @@ import useCounter from './useCounter';
 function App() {
   // Option 1: Destructuring as an array
   // Flexible because I can use whatever names I want since arrays manages indexes
-  const [number, add] = useCounter();
+  const [number, add] = useCounter(1420);
 
   // Option 2: Destructuring as an object
   // Not very flexible because the component MUST use the exact names the custom hook is returning

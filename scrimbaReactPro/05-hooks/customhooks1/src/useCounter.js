@@ -1,9 +1,9 @@
 // Custom Hooks
 import { useState } from 'react';
 
-function useCounter() {
+function useCounter(defaultValue) {
   // 1. Initialize State
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(defaultValue);
 
   // 2. Create any functions we need for modifying state
   function increment() {
