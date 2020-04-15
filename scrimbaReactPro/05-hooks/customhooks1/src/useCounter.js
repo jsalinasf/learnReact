@@ -1,7 +1,7 @@
 // Custom Hooks
 import { useState } from 'react';
 
-function useCounter(defaultValue = false) {
+function useCounter(defaultValue = 0) {
   // 1. Initialize State
   const [count, setCount] = useState(defaultValue);
 
