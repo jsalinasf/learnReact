@@ -11,10 +11,17 @@ function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    setContactsData((prevContactsData) => [...prevContactsData, inputData]);
+    // Another way of doing it
+    // [...prevContactsData].concat(inputData)
+    setInputData({ firstName: '', lastName: '' });
   }
 
-  console.log(inputData);
-  console.log(contactsData);
+  const displayContacts = contactsData.map((contact) => (
+    <p key={contact.firstName + contact.lastName}>
+      {contact.firstName} {contact.lastName}
+    </p>
+  ));
 
   return (
     <div className='counter'>
@@ -36,6 +43,7 @@ function App() {
         <button type='submit'>Add contact</button>
       </form>
       <h2>Contacts List</h2>
+      {displayContacts}
     </div>
   );
 }
