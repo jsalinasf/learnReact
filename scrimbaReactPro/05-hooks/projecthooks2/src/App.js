@@ -11,11 +11,22 @@ function App() {
   // This is when Component LifeCycle ComponentWillUnmount kicks in
 
   useEffect(() => {
-    setInterval(() => {
+    // this useEffect runs only once (Component Will Mount)
+    // hence we only have one instance of setInterval
+    const intervalID = setInterval(() => {
       setCount((prevCount) => prevCount + 1);
-      setColor(randomcolor());
     }, 1000);
+
+    // this return is used as "Component Will Unmount"
+    return () => clearInterval(intervalID);
   }, []);
+
+  // You can use useEffect more than once
+
+  useEffect(() => {
+    // this useEffect runs every time 'count' gets updated (Component Did Update)
+    setColor(randomcolor());
+  }, [count]);
 
   return (
     <div className='counter'>
