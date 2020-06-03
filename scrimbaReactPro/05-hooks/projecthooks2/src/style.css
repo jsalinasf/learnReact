@@ -6,7 +6,7 @@ body {
 .counter {
   padding: 20px;
   text-align: center;
-  background-color: dodgerblue;
+  background-color: #cecece;
   color: #fff;
-  box-shadow: 1em 1em 5px #cecece;
+  box-shadow: 1em 1em 5px #555555;
 }
