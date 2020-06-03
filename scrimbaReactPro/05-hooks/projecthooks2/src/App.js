@@ -11,12 +11,11 @@ function App() {
   // This is when Component LifeCycle ComponentWillUnmount kicks in
 
   useEffect(() => {
-    // setInterval(() => {
-    //   setCount((prevCount) => prevCount + 1);
-
-    // }, 1000);
-    setColor(randomcolor());
-  }, [count]);
+    setInterval(() => {
+      setCount((prevCount) => prevCount + 1);
+      setColor(randomcolor());
+    }, 1000);
+  }, []);
 
   return (
     <div className='counter'>
