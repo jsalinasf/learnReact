@@ -8,12 +8,22 @@ function App() {
     setText(value);
   }
 
+  function calculateWordCount(text) {
+    const wordArr = text
+      .trim()
+      .split(' ')
+      .filter((element) => element !== '');
+    return wordArr.length;
+  }
+
   return (
     <div>
       <h1>How fast can you type?</h1>
       <textarea value={text} onChange={handleChange} />
       <h4>Time remaining:</h4>
-      <button>Start</button>
+      <button onClick={() => console.log(calculateWordCount(text))}>
+        Start
+      </button>
       <h1>Word count is:</h1>
     </div>
   );
