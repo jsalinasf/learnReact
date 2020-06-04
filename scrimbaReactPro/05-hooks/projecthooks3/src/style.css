@@ -26,9 +26,16 @@ button {
   text-transform: uppercase;
 }
 
-button:active {
-  background: #a80020;
-  color: #ffffff;
+button:hover {
+  outline: 3px solid #a5a2a2;
+}
+
+button:disabled:hover {
+  outline: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
 }
 
 h1 {
@@ -45,4 +52,8 @@ textarea {
   height: 200px;
   background: #00b800;
   padding: 10px;
+}
+
+textarea:disabled {
+  background-color: #a5a2a2;
 }

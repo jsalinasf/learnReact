@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const START_GAME = 2;
+  const STARTING_TIME = 5;
 
   const [text, setText] = useState('');
-  const [timeRemaining, setTimeRemaining] = useState(START_GAME);
+  const [timeRemaining, setTimeRemaining] = useState(STARTING_TIME);
   const [isTimeRunning, setIsTimeRunning] = useState(false);
   const [wordCount, setWordCount] = useState(0);
 
@@ -22,9 +22,10 @@ function App() {
   }
 
   function startGame() {
-    setTimeRemaining(START_GAME);
+    setTimeRemaining(STARTING_TIME);
     setText('');
     setIsTimeRunning(true);
+    setWordCount(0);
   }
 
   function stopGame() {
@@ -48,9 +49,15 @@ function App() {
   return (
     <div>
       <h1>How fast can you type?</h1>
-      <textarea value={text} onChange={handleChange} />
+      <textarea
+        value={text}
+        onChange={handleChange}
+        disabled={!isTimeRunning}
+      />
       <h4>Time remaining: {timeRemaining}</h4>
-      <button onClick={handleClick}>Start</button>
+      <button onClick={handleClick} disabled={isTimeRunning}>
+        Start
+      </button>
       <h1>Word count: {wordCount}</h1>
     </div>
   );
