@@ -1,43 +1,37 @@
-// useRef Hook
-// to focus a specific element
-
-// You cant use document.getElementbyId because there could be many
-// instances of a component and then multiple elements with the same id
-
 import React, { useState, useRef } from 'react';
 
-function App() {
-  const [currentTodo, setCurrentTodo] = useState('');
+function App(props) {
+  const [newTodoValue, setNewTodoValue] = useState('');
   const [todoList, setTodoList] = useState([]);
   const inputRef = useRef(null);
 
   function handleChange(event) {
-    setCurrentTodo(event.target.value);
+    const { value } = event.target;
+    setNewTodoValue(value);
   }
 
-  function addTodo(event) {
+  function handleClick(event) {
     event.preventDefault();
-    setTodoList(prevElements => [...prevElements, currentTodo]);
-    setCurrentTodo('');
+    setTodoList((prevTodoList) => [...prevTodoList, newTodoValue]);
+    setNewTodoValue('');
     inputRef.current.focus();
   }
 
-  function displayTodoArray() {
-    return todoList.map(item => <h2>{item}</h2>);
-  }
+  const allTodoItems = todoList.map((item) => <p>{item}</p>);
 
   return (
     <div>
-      <form>
+      <h1>To-do List</h1>
+      <form action='#' method='POST'>
         <input
           ref={inputRef}
           type='text'
-          value={currentTodo}
+          value={newTodoValue}
           onChange={handleChange}
         ></input>
-        <button onClick={addTodo}>Add TO-DO item </button>
+        <button onClick={handleClick}>Add to-do item</button>
       </form>
-      {displayTodoArray()}
+      {allTodoItems}
     </div>
   );
 }
