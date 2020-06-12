@@ -38,6 +38,38 @@ button:disabled {
   cursor: not-allowed;
 }
 
+.btn-hints {
+  font-size: 10px;
+  font-family: 'Press Start 2P', cursive;
+  display: block;
+  margin: 4em auto 2em;
+  border: none;
+  background: #759275;
+  color: #f1f1f1;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  letter-spacing: 0.25em;
+}
+
+.btn-hints:disabled {
+  cursor: not-allowed;
+}
+
+.btn-hints:hover {
+  box-shadow: 0.2em 0.2em 1em #f00;
+  color: #000;
+}
+
+.btn-hints:disabled:hover {
+  box-shadow: none;
+  color: #f1f1f1;
+}
+
+p {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+}
+
 h1 {
   font-size: 20px;
   text-align: center;

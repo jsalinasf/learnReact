@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import './style.css';
+import App from './App';
+import { TipsContextProvider } from './tipsContext';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <TipsContextProvider>
+    <App />
+  </TipsContextProvider>,
+  document.getElementById('root')
+);
