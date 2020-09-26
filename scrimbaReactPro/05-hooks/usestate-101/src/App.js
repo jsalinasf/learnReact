@@ -7,8 +7,8 @@ const App = () => {
   }
   return (
     <div class='content'>
-      <h2>Just a counter:</h2>
-      <h3>{count}</h3>
+      <p>Just a counter:</p>
+      <h1>{count}</h1>
       <button onClick={increaseCount}>Increase</button>
     </div>
   );
