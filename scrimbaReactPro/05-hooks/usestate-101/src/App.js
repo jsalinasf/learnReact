@@ -1,38 +1,17 @@
 import React, { useState } from 'react';
 
 const App = () => {
-  const [answer, setAnswer] = useState('Yes');
-
-  function updateAnswer() {
-    setAnswer(answer === 'Yes' ? 'No' : 'Yes');
+  let [count, setCount] = useState(0);
+  function increaseCount(prevCount) {
+    setCount((prevCount) => prevCount + 1);
   }
-
   return (
     <div class='content'>
-      <h1>Is it important to learn React?</h1>
-      <h2>{answer}</h2>
-      <button onClick={updateAnswer}>Change Answer</button>
+      <h2>Just a counter:</h2>
+      <h3>{count}</h3>
+      <button onClick={increaseCount}>Increase</button>
     </div>
   );
 };
 
 export default App;
-
-// class App extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       answer: 'No',
-//     };
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <h1>Is it important to learn React? {this.state.answer}</h1>
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
