@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import randomcolor from 'randomcolor';
 
 const App = () => {
@@ -14,12 +14,10 @@ const App = () => {
 
   function increment() {
     setCounter((prevCount) => prevCount + 1);
-    updateColor();
   }
 
   function decrement() {
     setCounter((prevCount) => prevCount - 1);
-    updateColor();
   }
 
   function updateColor() {
@@ -42,6 +40,10 @@ const App = () => {
       {contact.firstName} {contact.lastName}
     </li>
   ));
+
+  useEffect(() => {
+    updateColor();
+  }, [counter]);
 
   return (
     <div>
