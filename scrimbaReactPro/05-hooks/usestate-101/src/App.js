@@ -1,26 +1,42 @@
-import React, { useState } from 'react';
+// componentDidMount
+// componentDidUpdate
+// componentWillUnmount
+
+// useEffect is a hook that allows me to produce side effects on my components
+// useEffect is anything that reaches out of the component, such as:
+// * network request
+// * DOM manipulation
+// * timeouts
+// * intervals
+// * event Listeners
+
+import React, { useState, useEffect } from 'react';
+import randomcolor from 'randomcolor';
 
 const App = () => {
-  let [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
+  const [color, setColor] = useState('');
 
-  function increaseCount() {
+  function increment() {
     setCount((prevCount) => prevCount + 1);
   }
 
-  function decreaseCount() {
+  function decrement() {
     setCount((prevCount) => prevCount - 1);
   }
 
+  useEffect(() => {
+    setColor(randomcolor);
+  }, [count]);
+  // if [count] array is empty, this useEffect will only run once
+
   return (
-    <div class='content'>
-      <p>Just a counter:</p>
-      <h1>{count}</h1>
-      <div>
-        <button onClick={increaseCount}>Increase</button>
-      </div>
-      <div>
-        <button onClick={decreaseCount}>Decrease</button>
-      </div>
+    <div className='content'>
+      <h1 style={{ color: color }}>{count}</h1>
+      <br />
+      <button onClick={increment}>Increment</button>
+      <br />
+      <button onClick={decrement}>Decrement</button>
     </div>
   );
 };
