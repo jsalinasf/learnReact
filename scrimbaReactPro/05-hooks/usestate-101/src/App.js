@@ -1,39 +1,40 @@
-// componentDidMount
-// componentDidUpdate
-// componentWillUnmount
-
-// useEffect is a hook that allows me to produce side effects on my components
-// useEffect is anything that reaches out of the component, such as:
-// * network request
-// * DOM manipulation
-// * timeouts
-// * intervals
-// * event Listeners
-
-import React, { useState, useEffect } from 'react';
-import randomcolor from 'randomcolor';
+import React, { useState, useRef } from 'react';
 
 const App = () => {
-  const [count, setCount] = useState(0);
-  const [color, setColor] = useState('');
+  const [newTodoValue, setNewTodoValue] = useState('');
+  const [todoList, setTodoList] = useState([]);
+  const inputRef = useRef(null);
 
-  // It is possible to use more than one useEffect
+  function handleChange(event) {
+    setNewTodoValue(event.target.value);
+  }
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCount((prevCount) => prevCount + 1);
-    }, 1000);
-    // this return will behave like componentWillUnmount
-    return () => clearInterval(intervalId);
-  }, []);
+  function handleClick(event) {
+    event.preventDefault();
+    setTodoList((prevList) => [...prevList, newTodoValue]);
+    setNewTodoValue('');
+    inputRef.current.focus();
+  }
 
-  useEffect(() => {
-    setColor(randomcolor());
-  }, [count]);
+  const displayList = todoList.map((element) => (
+    <li key={Math.random(1)}>{element}</li>
+  ));
 
   return (
     <div className='content'>
-      <h1 style={{ color: color }}>{count}</h1>
+      <h1>My To Do List</h1>
+      <form>
+        <input
+          ref={inputRef}
+          name='newTodoValue'
+          value={newTodoValue}
+          onChange={handleChange}
+        ></input>
+        <br />
+        <button onClick={handleClick}>Add To Do</button>
+        <h2>Pending Tasks:</h2>
+      </form>
+      <ol>{displayList}</ol>
     </div>
   );
 };

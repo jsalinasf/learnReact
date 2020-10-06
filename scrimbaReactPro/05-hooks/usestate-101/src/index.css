@@ -18,3 +18,7 @@
   margin: 2rem auto;
   max-width: 700px;
 }
+
+input {
+  border: 1px solid goldenrod;
+}
